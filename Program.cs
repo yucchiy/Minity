@@ -6,7 +6,10 @@ namespace Minity
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var window = new MinityWindow())
+            {
+                window.Run();
+            }
         }
     }
 }
