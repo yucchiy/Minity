@@ -30,13 +30,13 @@ namespace Minity.MinityEngine
             ActiveScene.Update(deltaTime);
         }
 
-        public void Render(double deltaTime)
+        public void Render(double deltaTime, IGraphicsContext context)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            GraphicsContext.SwapBuffers();
-
             ActiveScene.Render(deltaTime);
+
+            context.SwapBuffers();
         }
 
         public void Resize(int width, int height)

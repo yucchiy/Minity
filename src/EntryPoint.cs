@@ -5,7 +5,7 @@ namespace Minity
     {
         static void Main(string[] args)
         {
-            using (var window = new MinityEngine.MinityWindow(new App.FirstTriangleScene()))
+            using (var window = new MinityEngine.MinityWindow(new App.FirstTriangle.FirstTriangleScene()))
             {
                 window.Run();
             }

@@ -47,7 +47,7 @@ namespace Minity.MinityEngine
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            Minity.Render(args.Time);
+            Minity.Render(args.Time, Context);
             base.OnRenderFrame(args);
         }
 
