@@ -1,12 +1,11 @@
-﻿using System;
-
+﻿
 namespace Minity
 {
-    class Program
+    class EntryPoint
     {
         static void Main(string[] args)
         {
-            using (var window = new MinityWindow())
+            using (var window = new MinityEngine.MinityWindow(new App.FirstTriangleScene()))
             {
                 window.Run();
             }
