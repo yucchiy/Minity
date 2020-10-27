@@ -26,6 +26,11 @@ namespace Minity.MinityEngine.Rendering.LowLevel
             GL.UseProgram(Handle);
         }
 
+        public GLUniform GetUniform(string name)
+        {
+            return new GLUniform(this, name);
+        }
+
         public void Dispose()
         {
             GL.DeleteProgram(Handle);
