@@ -16,5 +16,7 @@
     <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/frag.glsl"/>
     <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/vert.glsl"/>
     <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/frag.glsl"/>
+    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/vert.glsl"/>
+    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/frag.glsl"/>
   </ItemGroup>
 </Project>
