@@ -17,10 +17,6 @@ namespace Minity.MinityEngine
         {
             Assembly = typeof(EmbeddedResource).GetTypeInfo().Assembly;
             FilePath = filePath;
-
-            foreach (var path in Assembly.GetManifestResourceNames())
-            {
-            }
         }
 
         public void Dispose()
