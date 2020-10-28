@@ -7,16 +7,22 @@
 
   <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.0.6" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/vert.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/frag.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/vert.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/frag.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/vert.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/frag.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/vert.glsl"/>
-    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/frag.glsl"/>
+    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/frag.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/frag.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/frag.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/frag.glsl" />
+
+    <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/frag.glsl" />
+
+    <EmbeddedResource Include="./src/Minity.App/Resources/crate.png" />
   </ItemGroup>
 </Project>
