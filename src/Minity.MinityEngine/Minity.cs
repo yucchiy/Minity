@@ -7,6 +7,9 @@ namespace Minity.MinityEngine
     public class Minity : System.IDisposable
     {
         public IScene ActiveScene { get; }
+        public IUpdatable SceneUpdatable { get; }
+        public IRenderable SceneRenderable { get; }
+        public IResizable SceneResizable { get; }
 
         public IGraphicsContext GraphicsContext { get; }
 
@@ -17,29 +20,32 @@ namespace Minity.MinityEngine
             ActiveScene = scene;
             GraphicsContext = graphicsContext;
             Window = window;
+
+            SceneUpdatable = ActiveScene as IUpdatable;
+            SceneRenderable = ActiveScene as IRenderable;
+            SceneResizable = ActiveScene as IResizable;
         }
 
         public void Setup()
         {
-            ActiveScene.Setup();
+            if (ActiveScene is ISetupable setupable) setupable.Setup();
         }
 
         public void Dispose()
         {
             if (ActiveScene is System.IDisposable disposable) disposable.Dispose();
-            Resize(Window.Size.X, Window.Size.Y);
         }
 
         public void Update(double deltaTime)
         {
-            ActiveScene.Update(deltaTime);
+            SceneUpdatable?.Update(deltaTime);
         }
 
         public void Render(double deltaTime, IGraphicsContext context)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            ActiveScene.Render(deltaTime);
+            SceneRenderable?.Render(deltaTime);
 
             context.SwapBuffers();
         }
@@ -47,7 +53,7 @@ namespace Minity.MinityEngine
         public void Resize(int width, int height)
         {
             GL.Viewport(0, 0, width, height);
-            if (ActiveScene is IResizable resizable) resizable.Resize(width, height);
+            SceneResizable.Resize(width, height);
         }
     }
 }

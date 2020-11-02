@@ -7,7 +7,7 @@ using Minity.MinityEngine.Rendering.LowLevel;
 
 namespace Minity.App.Exercise.Texture
 {
-    public class MainScene : IScene, IDisposable
+    public class MainScene : IScene, ISetupable, IRenderable, IDisposable
     {
         private GLBufferObject<float> VertexBuffer { get; set; }
         private GLBufferObject<float> UvBuffer { get; set; }
@@ -67,10 +67,6 @@ namespace Minity.App.Exercise.Texture
             VertexArray.Dispose();
             VertexBuffer.Dispose();
             Program.Dispose();
-        }
-
-        public void Update(double deltaTime)
-        {
         }
 
         public void Render(double deltaTime)

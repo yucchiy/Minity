@@ -7,7 +7,7 @@ using Minity.MinityEngine.Rendering;
 
 namespace Minity.App.Exercise.Camera
 {
-    public class MainScene : IScene, IDisposable, IResizable
+    public class MainScene : IScene, ISetupable, IRenderable, IDisposable, IResizable
     {
         private ICamera Camera { get; set; }
         private CheckerFloor Checker { get; set; }
@@ -27,10 +27,6 @@ namespace Minity.App.Exercise.Camera
         public void Dispose()
         {
             Checker.Dispose();
-        }
-
-        public void Update(double deltaTime)
-        {
         }
 
         public void Render(double deltaTime)

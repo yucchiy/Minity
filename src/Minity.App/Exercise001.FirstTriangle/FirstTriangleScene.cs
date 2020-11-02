@@ -6,7 +6,7 @@ using Minity.MinityEngine.Rendering.LowLevel;
 
 namespace Minity.App.Exercise.FirstTriangle
 {
-    public class FirstTriangleScene : IScene, IDisposable
+    public class FirstTriangleScene : IScene, ISetupable, IRenderable, IDisposable
     {
         private GLBufferObject<float> VertexBuffer { get; set; }
         private GLVertexArrayObject VertexArray { get; set; } 
@@ -43,10 +43,6 @@ namespace Minity.App.Exercise.FirstTriangle
             VertexArray.Dispose();
             VertexBuffer.Dispose();
             Program.Dispose();
-        }
-
-        public void Update(double deltaTime)
-        {
         }
 
         public void Render(double deltaTime)
