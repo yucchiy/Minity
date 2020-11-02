@@ -21,7 +21,7 @@ namespace Minity.MinityEngine
             }
         )
         {
-            Minity = new Minity(scene, Context);
+            Minity = new Minity(scene, Context, this as NativeWindow);
         }
 
         protected override void OnLoad()

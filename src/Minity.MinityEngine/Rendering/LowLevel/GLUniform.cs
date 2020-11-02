@@ -1,4 +1,5 @@
 using OpenTK.Graphics.OpenGL4;
+using OpenTK.Mathematics;
 
 namespace Minity.MinityEngine.Rendering.LowLevel
 {
@@ -25,6 +26,11 @@ namespace Minity.MinityEngine.Rendering.LowLevel
         public void Uniform1(int value)
         {
             GL.Uniform1(Location, value);
+        }
+
+        public void Matrix4(bool transpose, ref Matrix4 value)
+        {
+            GL.UniformMatrix4(Location, transpose, ref value);
         }
     }
 }

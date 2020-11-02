@@ -1,4 +1,5 @@
 using OpenTK.Windowing.Common;
+using OpenTK.Windowing.Desktop;
 using OpenTK.Graphics.OpenGL4;
 
 namespace Minity.MinityEngine
@@ -9,10 +10,13 @@ namespace Minity.MinityEngine
 
         public IGraphicsContext GraphicsContext { get; }
 
-        public Minity(IScene scene, IGraphicsContext graphicsContext)
+        public NativeWindow Window { get; }
+
+        public Minity(IScene scene, IGraphicsContext graphicsContext, NativeWindow window)
         {
             ActiveScene = scene;
             GraphicsContext = graphicsContext;
+            Window = window;
         }
 
         public void Setup()
@@ -23,6 +27,7 @@ namespace Minity.MinityEngine
         public void Dispose()
         {
             if (ActiveScene is System.IDisposable disposable) disposable.Dispose();
+            Resize(Window.Size.X, Window.Size.Y);
         }
 
         public void Update(double deltaTime)
@@ -42,6 +47,7 @@ namespace Minity.MinityEngine
         public void Resize(int width, int height)
         {
             GL.Viewport(0, 0, width, height);
+            if (ActiveScene is IResizable resizable) resizable.Resize(width, height);
         }
     }
 }
