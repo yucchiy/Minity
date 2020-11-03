@@ -28,6 +28,7 @@ namespace Minity.MinityEngine
 
         public void Setup()
         {
+            GL.Enable(EnableCap.DepthTest);
             if (ActiveScene is ISetupable setupable) setupable.Setup();
         }
 
@@ -43,7 +44,7 @@ namespace Minity.MinityEngine
 
         public void Render(double deltaTime, IGraphicsContext context)
         {
-            GL.Clear(ClearBufferMask.ColorBufferBit);
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
             SceneRenderable?.Render(deltaTime);
 

@@ -23,10 +23,8 @@
     <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/vert.glsl" />
     <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/frag.glsl" />
 
-    <EmbeddedResource Include="./src/Minity.App/Resources/crate.png" />
+    <EmbeddedResource Include="./src/Minity.App/Resources/*" />
 
-    <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/checkerfloor.jpg" />
-    <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/checkerfloor_vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/checkerfloor_frag.glsl" />
+    <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/*" />
   </ItemGroup>
 </Project>

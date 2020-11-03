@@ -92,6 +92,7 @@ namespace Minity.MinityEngine.Rendering
         public void Render(double deltaTime)
         {
             Program.Use();
+            Texture.Bind();
 
             Camera.GetViewMatrix(out ViewMatrix);
             Camera.GetProjectionMatrix(out ProjectionMatrix);
