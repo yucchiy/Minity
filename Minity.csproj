@@ -23,6 +23,11 @@
     <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/vert.glsl" />
     <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/frag.glsl" />
 
+    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_frag.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_object_vert.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_object_frag.glsl" />
+
     <EmbeddedResource Include="./src/Minity.App/Resources/*" />
 
     <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/*" />

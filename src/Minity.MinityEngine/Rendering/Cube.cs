@@ -8,6 +8,7 @@ namespace Minity.MinityEngine
     public class Cube : System.IDisposable
     {
         private GLBufferObject<float> VertexBuffer { get; }
+        private GLBufferObject<float> NormalBuffer { get; }
         private GLBufferObject<float> UVBuffer { get; }
         private GLBufferObject<uint> IndexBuffer { get; }
         private GLVertexArrayObject VertexArray { get; }
@@ -59,6 +60,40 @@ namespace Minity.MinityEngine
             0.5f, -0.5f, -0.5f,
             0.5f,  0.5f, -0.5f,
             0.5f,  0.5f,  0.5f,
+        };
+
+        private readonly float[] Normals = new float[]
+        {
+            // front
+            0f, 0f, 1f,
+            0f, 0f, 1f,
+            0f, 0f, 1f,
+            0f, 0f, 1f,
+            // top
+            0f, 1f, 0f,
+            0f, 1f, 0f,
+            0f, 1f, 0f,
+            0f, 1f, 0f,
+            // back
+            0f, 0f, -1f,
+            0f, 0f, -1f,
+            0f, 0f, -1f,
+            0f, 0f, -1f,
+            // bottom
+            0f, -1f, 0f,
+            0f, -1f, 0f,
+            0f, -1f, 0f,
+            0f, -1f, 0f,
+            // left
+            -1f, 0f, 0f,
+            -1f, 0f, 0f,
+            -1f, 0f, 0f,
+            -1f, 0f, 0f,
+            // right
+            1f, 0f, 0f,
+            1f, 0f, 0f,
+            1f, 0f, 0f,
+            1f, 0f, 0f,
         };
 
         private readonly float[] UVs = new float[]
@@ -119,12 +154,14 @@ namespace Minity.MinityEngine
         public Cube(ICamera camera)
         {
             VertexBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, Vertices, BufferUsageHint.StaticDraw);
+            NormalBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, Normals, BufferUsageHint.StaticDraw);
             UVBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, UVs, BufferUsageHint.StaticDraw);
             IndexBuffer = new GLBufferObject<uint>(BufferTarget.ElementArrayBuffer, Indices, BufferUsageHint.StaticDraw);
 
             VertexArray = new GLVertexArrayObject();
             VertexArray.BindAttribute<float>(0, 3, VertexAttribPointerType.Float, VertexBuffer, false, 3 * VertexBuffer.DataSize, 0);
             VertexArray.BindAttribute<float>(1, 2, VertexAttribPointerType.Float, UVBuffer, false, 2 * UVBuffer.DataSize, 0);
+            VertexArray.BindAttribute<float>(2, 3, VertexAttribPointerType.Float, NormalBuffer, false, 3 * NormalBuffer.DataSize, 0);
 
             var vertexShaderResource = new EmbeddedResource("src/Minity.MinityEngine/Rendering/Resources/cube_vert.glsl");
             var fragmentShaderResource = new EmbeddedResource("src/Minity.MinityEngine/Rendering/Resources/cube_frag.glsl");
@@ -133,6 +170,34 @@ namespace Minity.MinityEngine
             var fragmentShader = new GLShader(fragmentShaderResource.Stream, ShaderType.FragmentShader);
 
             Program = new GLProgram(vertexShader, fragmentShader);
+            Texture = new Texture2D(new EmbeddedResource("src/Minity.MinityEngine/Rendering/Resources/cube.png"));
+
+            Program.Use();
+
+            UniformModel = Program.GetUniform("ModelMatrix");
+            UniformView = Program.GetUniform("ViewMatrix");
+            UniformProjection = Program.GetUniform("ProjectionMatrix");
+
+            ModelMatrix = Matrix4.Identity;
+            ViewMatrix = Matrix4.Identity;
+            ProjectionMatrix = Matrix4.Identity;
+
+            Camera = camera;
+        }
+
+        public Cube(ICamera camera, GLProgram program)
+        {
+            VertexBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, Vertices, BufferUsageHint.StaticDraw);
+            NormalBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, Normals, BufferUsageHint.StaticDraw);
+            UVBuffer = new GLBufferObject<float>(BufferTarget.ArrayBuffer, UVs, BufferUsageHint.StaticDraw);
+            IndexBuffer = new GLBufferObject<uint>(BufferTarget.ElementArrayBuffer, Indices, BufferUsageHint.StaticDraw);
+
+            VertexArray = new GLVertexArrayObject();
+            VertexArray.BindAttribute<float>(0, 3, VertexAttribPointerType.Float, VertexBuffer, false, 3 * VertexBuffer.DataSize, 0);
+            VertexArray.BindAttribute<float>(1, 2, VertexAttribPointerType.Float, UVBuffer, false, 2 * UVBuffer.DataSize, 0);
+            VertexArray.BindAttribute<float>(2, 3, VertexAttribPointerType.Float, NormalBuffer, false, 3 * NormalBuffer.DataSize, 0);
+
+            Program = program;
             Texture = new Texture2D(new EmbeddedResource("src/Minity.MinityEngine/Rendering/Resources/cube.png"));
 
             Program.Use();

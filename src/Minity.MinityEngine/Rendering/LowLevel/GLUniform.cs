@@ -28,6 +28,11 @@ namespace Minity.MinityEngine.Rendering.LowLevel
             GL.Uniform1(Location, value);
         }
 
+        public void Uniform3(ref Vector3 value)
+        {
+            GL.Uniform3(Location, ref value);
+        }
+
         public void Matrix4(bool transpose, ref Matrix4 value)
         {
             GL.UniformMatrix4(Location, transpose, ref value);
