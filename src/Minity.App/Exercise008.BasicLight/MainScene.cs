@@ -72,11 +72,9 @@ namespace Minity.App.Exercise.BasicLight
             var lightPosition = LightCube.Position;
             var lightColor = LightColor;
 
-            LightObjectProgram.Use();
             LightObjectColorUniform.Uniform3(ref lightColor);
             LightCube.Render(deltaTime);
 
-            LightProgram.Use();
             LightPositionUniform.Uniform3(ref lightPosition);
             LightColorUniform.Uniform3(ref lightColor);
 
