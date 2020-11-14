@@ -12,7 +12,8 @@ namespace Minity
             // using (var window = new MinityEngine.MinityWindow(new App.Exercise.Texture.MainScene()))
             // using (var window = new MinityEngine.MinityWindow(new App.Exercise.Camera.MainScene()))
             // using (var window = new MinityEngine.MinityWindow(new App.Exercise.FirstDepth.MainScene()))
-            using (var window = new MinityEngine.MinityWindow(new App.Exercise.BasicLight.MainScene()))
+            // using (var window = new MinityEngine.MinityWindow(new App.Exercise.BasicLight.MainScene()))
+            using (var window = new MinityEngine.MinityWindow(new App.Exercise.ModelLoading.MainScene()))
             {
                 window.Run();
             }

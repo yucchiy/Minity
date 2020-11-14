@@ -11,25 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise001.FirstTriangle/frag.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise002.ColoredTriangle/frag.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise003.IBO/frag.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise004.Uniform/frag.glsl" />
-
-    <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise005.Texture/frag.glsl" />
-
-    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_frag.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_object_vert.glsl" />
-    <EmbeddedResource Include="./src/Minity.App/Exercise008.BasicLight/light_object_frag.glsl" />
-
+    <EmbeddedResource Include="./src/Minity.App/**/*.glsl" />
+    <EmbeddedResource Include="./src/Minity.App/**/*.obj" />
+    <EmbeddedResource Include="./src/Minity.App/**/*.mtl" />
+    <EmbeddedResource Include="./src/Minity.App/**/*.jpg" />
     <EmbeddedResource Include="./src/Minity.App/Resources/*" />
-
     <EmbeddedResource Include="./src/Minity.MinityEngine/Rendering/Resources/*" />
   </ItemGroup>
 </Project>
