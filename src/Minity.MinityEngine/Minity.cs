@@ -45,9 +45,7 @@ namespace Minity.MinityEngine
         public void Render(double deltaTime, IGraphicsContext context)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
             SceneRenderable?.Render(deltaTime);
-
             context.SwapBuffers();
         }
 

@@ -27,21 +27,18 @@ namespace Minity.MinityEngine
         protected override void OnLoad()
         {
             Minity.Setup();
-
             base.OnLoad();
         }
 
         protected override void OnUnload()
         {
             Minity.Dispose();
-            
             base.OnUnload();
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
             Minity.Update(args.Time);
-
             base.OnUpdateFrame(args);
         }
 
