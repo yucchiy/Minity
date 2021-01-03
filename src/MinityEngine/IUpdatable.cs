@@ -1,4 +1,4 @@
-namespace Minity.MinityEngine
+namespace MinityEngine
 {
     public interface IUpdatable
     {

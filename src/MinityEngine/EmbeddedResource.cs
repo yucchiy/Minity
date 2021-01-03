@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace Minity.MinityEngine
+namespace MinityEngine
 {
     public class EmbeddedResource : IDisposable
     {

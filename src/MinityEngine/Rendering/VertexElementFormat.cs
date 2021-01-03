@@ -1,0 +1,39 @@
+namespace MinityEngine.Rendering
+{
+    public enum VertexElementFormat : byte
+    {
+        Float1,
+        Float2,
+        Float3,
+        Float4,
+        Byte2,
+        Byte2_Norm,
+        Byte4,
+        Byte4_Norm,
+
+        SByte2,
+        SByte2_Norm,
+        SByte4,
+        SByte4_Norm,
+        UShort2,
+        UShort2_Norm,
+        UShort4,
+        UShort4_Norm,
+        Short2,
+        Short2_Norm,
+        Short4,
+        Short4_Norm,
+        UInt1,
+        UInt2,
+        UInt3,
+        UInt4,
+        Int1,
+        Int2,
+        Int3,
+        Int4,
+        Half1,
+        Half2,
+        Half3,
+        Half4,
+    }
+}

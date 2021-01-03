@@ -1,8 +1,7 @@
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
-using OpenTK.Graphics.OpenGL4;
 
-namespace Minity.MinityEngine
+namespace MinityEngine
 {
     public class MinityWindow : GameWindow
     {

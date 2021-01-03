@@ -2,7 +2,7 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Minity.MinityEngine
+namespace MinityEngine
 {
     public class Minity : System.IDisposable
     {
@@ -52,7 +52,7 @@ namespace Minity.MinityEngine
         public void Resize(int width, int height)
         {
             GL.Viewport(0, 0, width, height);
-            SceneResizable.Resize(width, height);
+            SceneResizable?.Resize(width, height);
         }
     }
 }
